@@ -1,0 +1,26 @@
+{
+  "test_goods_add_001":
+  {
+    "goods_name": "Iphone14",
+    "goods_price": "2000",
+    "from_date": "2020-11-11",
+    "end_date": "2020-12-13",
+    "file_path": "d:\\logo.gif"
+  },
+  "test_goods_add_002":
+  {
+    "goods_name": "Iphone15",
+    "goods_price": "1000",
+    "from_date": "2021-11-11",
+    "end_date": "2021-12-13",
+    "file_path": "d:\\logo.gif"
+  },
+  "test_goods_add_003":
+  {
+    "goods_name": "Iphone16",
+    "goods_price": "500",
+    "from_date": "2022-11-11",
+    "end_date": "2022-12-13",
+    "file_path": "d:\\logo.gif"
+  }
+}

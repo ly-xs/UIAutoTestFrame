@@ -1,0 +1,5 @@
+{
+  "test_cart_001": {"goods_id": "9","goods_num": "1"},
+  "test_cart_002": {"goods_id": "10","goods_num": "2"},
+  "test_cart_003": {"goods_id": "11","goods_num": "1"}
+}
