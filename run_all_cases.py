@@ -1,6 +1,6 @@
 import unittest
 import time
-from HTMLTestRunner_PY3 import HTMLTestRunner
+from common.HTMLTestRunner import HTMLTestRunner
 
 if __name__ == '__main__':
 
@@ -11,7 +11,7 @@ if __name__ == '__main__':
 	# 测试报告路径
 	report_path = '.\\report' + '\\' + now + 'Result.html'
 	# discover()方式加载某路径下的所有测试用例
-	discover = unittest.defaultTestLoader.discover(start_dir=dir_path, pattern='baidu*.py', top_level_dir=None)
+	discover = unittest.defaultTestLoader.discover(start_dir=dir_path, pattern='baidu*.py')
 	# print(discover)
 
 	with open(report_path, 'wb') as f:
