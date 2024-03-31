@@ -1,11 +1,9 @@
 import time
 import unittest
-
 from ddt import ddt, data
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-
 from pageobject.baiduHomePage import BaiduPage
 
 

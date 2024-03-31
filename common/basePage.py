@@ -14,8 +14,8 @@ logger = Logger(logger="BasePage").getlog()
 
 class BasePage(object):
     """
-	定义一个页面基类，让所有页面都继承这个类，封装一些常用的页面操作方法到这个类
-	"""
+    定义一个页面基类，让所有页面都继承这个类，封装一些常用的页面操作方法到这个类
+    """
 
     def __init__(self, driver):
         self.driver = driver
@@ -50,8 +50,8 @@ class BasePage(object):
     # 保存图片
     def get_windows_img(self):
         """
-		在这里我们把file_path这个参数写死，直接保存到我们项目根目录的一个文件夹.\Screenshots下
-		"""
+        在这里我们把file_path这个参数写死，直接保存到我们项目根目录的一个文件夹.\Screenshots下
+        """
         file_path = os.path.dirname(os.path.abspath('../pageobject')) + '/screenshots/'
         rq = time.strftime('%Y%m%d%H%M', time.localtime(time.time()))
         screen_name = file_path + rq + '.png'
@@ -66,13 +66,13 @@ class BasePage(object):
     # 定位元素方法
     def find_element(self, selector):
         """
-		 这个地方为什么是根据=>来切割字符串，请看页面里定位元素的方法
-		 submit_btn = "id=>su"
-		 login_lnk = "xpath => //*[@id='u1']/a[7]"  # 百度首页登录链接定位
-		 如果采用等号，结果很多xpath表达式中包含一个=，这样会造成切割不准确，影响元素定位
-		:param selector:
-		:return: element
-		"""
+        这个地方为什么是根据=>来切割字符串，请看页面里定位元素的方法
+        submit_btn = "id=>su"
+        login_lnk = "xpath => //*[@id='u1']/a[7]"  # 百度首页登录链接定位
+        如果采用等号，结果很多xpath表达式中包含一个=，这样会造成切割不准确，影响元素定位
+        :param selector:
+        :return: element
+        """
         element = ''
         if '=>' not in selector:
             return self.driver.find_element_by_id(selector)

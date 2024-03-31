@@ -1,3 +1,4 @@
+import os
 import unittest
 import time
 from common.HTMLTestRunner import HTMLTestRunner
@@ -9,7 +10,10 @@ if __name__ == '__main__':
 	# 测试报告名称中加上格式化时间
 	now = time.strftime('%Y-%m-%d %H_%M_%S')
 	# 测试报告路径
-	report_path = '.\\report' + '\\' + now + 'Result.html'
+	report_path = '.\\report'
+	if not os.path.exists(report_path):
+		os.makedirs(report_path)
+		report_path += '\\' + now + 'Result.html'
 	# discover()方式加载某路径下的所有测试用例
 	discover = unittest.defaultTestLoader.discover(start_dir=dir_path, pattern='baidu*.py')
 	# print(discover)
