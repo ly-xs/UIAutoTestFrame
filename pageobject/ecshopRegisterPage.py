@@ -1,7 +1,7 @@
 from selenium.webdriver.support.select import Select
 
-from common.basePage import BasePage
-from common.logger import Logger
+from public.basePage import BasePage
+from public.logger import Logger
 
 logger = Logger(logger="RegisterPage").getlog()
 

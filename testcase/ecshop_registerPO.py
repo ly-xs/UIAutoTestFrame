@@ -1,9 +1,7 @@
 import unittest
 from time import sleep
-
 from ddt import ddt, file_data
 from selenium import webdriver
-
 from pageobject.ecshopRegisterPage import RegisterPage
 
 

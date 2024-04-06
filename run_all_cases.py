@@ -1,7 +1,7 @@
 import os
 import unittest
 import time
-from common.HTMLTestRunner import HTMLTestRunner
+from public.HTMLTestRunner import HTMLTestRunner
 
 if __name__ == '__main__':
 

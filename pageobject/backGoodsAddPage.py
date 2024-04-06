@@ -3,7 +3,7 @@ import time
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 
-from common.basePage import BasePage
+from public.basePage import BasePage
 
 
 # 定义class 继承 BasePage类

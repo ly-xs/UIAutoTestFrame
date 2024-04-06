@@ -6,7 +6,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from common.logger import Logger
+from public.logger import Logger
 
 # create a logger instance
 logger = Logger(logger="BasePage").getlog()

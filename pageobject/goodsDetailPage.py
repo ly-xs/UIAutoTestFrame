@@ -1,8 +1,8 @@
 from selenium.webdriver.common.keys import Keys
 
-from common.basePage import BasePage
+from public.basePage import BasePage
 from selenium.webdriver.common.by import By
-from common.logger import Logger
+from public.logger import Logger
 
 logger = Logger(logger="GoodsDetailPage").getlog()
 

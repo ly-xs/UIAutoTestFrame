@@ -202,7 +202,7 @@ class Template_mixin(object):
     
     <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.common.min.js"></script>
-    <!-- <script type="text/javascript" src="js/echarts.common.min.js"></script> -->
+    <!-- <script type="text/javascript" src="js/echarts.public.min.js"></script> -->
     
     %(stylesheet)s
     
@@ -625,7 +625,7 @@ class _TestResult(TestResult):
                 sys.stderr.write(str(test))
                 sys.stderr.write('\n')
             else:
-                sys.stderr.write('.')
+                sys.stderr.write('../common')
 
     def addError(self, test, err):
         self.error_count += 1
@@ -695,7 +695,7 @@ class _TestResult(TestResult):
                 sys.stderr.write(str(subtest))
                 sys.stderr.write('\n')
             else:
-                sys.stderr.write('.')
+                sys.stderr.write('../common')
 
 
 class HTMLTestRunner(Template_mixin):

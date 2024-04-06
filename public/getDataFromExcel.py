@@ -22,5 +22,5 @@ def get_data_from_excel(path, sheet_id=0, headlines=1):
 	return content
 
 # test
-# ctx = get_data_from_excel(r'..\testdata\search_goods.xlsx',0,2)
+# ctx = get_data_from_excel(r'..\database\search_goods.xlsx',0,2)
 # print(ctx)

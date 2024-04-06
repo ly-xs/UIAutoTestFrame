@@ -1,4 +1,4 @@
-from common.basePage import BasePage
+from public.basePage import BasePage
 
 
 class BaiduPage(BasePage):
