@@ -1,0 +1,40 @@
+testinfo:
+      - id: test_setup001
+        title: 首页---设置
+        info: 打开设置页面
+        url: /
+testcase:
+      - element_info: .avatar-icon
+        find_type: css selector
+        operate_type: perform
+        info: 鼠标悬停账户菜单
+      - element_info: a[href='/profile']
+        find_type: css selector
+        operate_type: click
+        info: 选择设置
+      - element_info: .edit
+        find_type: css selector
+        operate_type: click
+        info: 点击编辑
+      - element_info: input[class='nick input-text']
+        find_type: css selector
+        operate_type: send_keys
+        info: 昵称文本框录入数据
+      - element_info: input[class='sign input-text']
+        find_type: css selector
+        operate_type: send_keys
+        info: 签名档录入数据
+      - element_info: .btn.save-btn
+        find_type: css selector
+        operate_type: click
+        info: 单击保存
+check:
+      - element_info: .tips-top-text
+        find_type: css selector
+        info: 检查昵称文本框为空是否有提示
+      - element_info: body > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)
+        find_type: css selector
+        info: 检查修改后的昵称是否匹配
+      - element_info: body > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > span:nth-child(2)
+        find_type: css selector
+        info: 检查修改后的签名是否匹配

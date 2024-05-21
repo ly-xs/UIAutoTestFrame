@@ -1,0 +1,47 @@
+testinfo:
+      - id: test_login001
+        title: 登录测试
+        info: 打开抽屉首页
+        url: /
+testcase:
+      - element_info: login_btn
+        find_type: id
+        operate_type: click
+        info: 打开登录对话框
+      - element_info: phone
+        find_type: name
+        operate_type: send_keys
+        info: 输入手机号
+      - element_info: input[placeholder='密码'][name='password'][type='password']
+        find_type: css selector
+        operate_type: send_keys
+        info: 输入密码
+      - element_info: .eyes-icon.eye-close
+        find_type: css selector
+        operate_type: click
+        info: 单击取消自动登录单选框
+      - element_info: .btn-large.login-btn
+        find_type: css selector
+        operate_type: click
+        info: 单击登录按钮
+      - element_info: .avatar-icon
+        find_type: css selector
+        operate_type: perform
+        info: 鼠标悬停账户菜单
+      - element_info: 退出
+        find_type: link text
+        operate_type: click
+        info: 选择退出
+check:
+      - element_info: .new-dialog-tips.dialog-common-warn-tips
+        find_type: css selector
+        info: 检查输入手机号或密码，登录异常提示
+      - element_info: .avatar-icon
+        find_type: css selector
+        info: 悬停头像
+      - element_info: a[href='/collects/links']
+        find_type: css selector
+        info: 成功登录
+      - element_info: login_btn
+        find_type: id
+        info: 检查退出登录是否成功

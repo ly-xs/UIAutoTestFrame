@@ -1,23 +1,31 @@
+import configparser
 import os
-import unittest
+import sys
 import time
-from public.HTMLTestRunner import HTMLTestRunner
+import unittest
 
-if __name__ == '__main__':
+sys.path.append(os.path.dirname(__file__))
+from package.HTMLTestRunner import HTMLTestRunner
+from common.sendmail import send_mail
+from common.newReport import new_report
+from config.config import REPORT_DIR, TEST_CASE_DIR, CONFIG_FILE
 
-	# 测试用例存放的目录
-	dir_path = '.\\testcase'
-	# 测试报告名称中加上格式化时间
-	now = time.strftime('%Y-%m-%d %H_%M_%S')
-	# 测试报告路径
-	report_path = '.\\report'
-	if not os.path.exists(report_path):
-		os.makedirs(report_path)
-		report_path += '\\' + now + 'Result.html'
-	# discover()方式加载某路径下的所有测试用例
-	discover = unittest.defaultTestLoader.discover(start_dir=dir_path, pattern='baidu*.py')
-	# print(discover)
+# 读取config.ini配置文件
+config = configparser.ConfigParser()
+config.read(CONFIG_FILE, encoding="utf-8")
+browser = config.get("Browser", "browser")
 
-	with open(report_path, 'wb') as f:
-		runner = HTMLTestRunner(stream=f, verbosity=2, title='ECshop自动化测试报告', description='用例执行详细信息')
-		runner.run(discover)
+
+def run_case(test_path=TEST_CASE_DIR, result_path=REPORT_DIR):
+    """执行所有的测试用例"""
+    now = time.strftime("%Y-%m-%d %H_%M_%S")
+    filename = result_path + '/' + now + 'result.html'
+    with open(filename, 'wb') as f:
+        runner = HTMLTestRunner(stream=f, title='抽屉新热榜UI自动化测试报告', description=f'环境：windows 10 浏览器：{browser}')
+        runner.run(unittest.defaultTestLoader.discover(test_path, pattern='login_test.py'))
+    report = new_report(result_path)  # 调用模块生成最新的报告
+    send_mail(report)  # 调用发送邮件模块
+
+
+if __name__ == "__main__":
+    run_case()
