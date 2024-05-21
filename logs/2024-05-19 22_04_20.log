@@ -1,0 +1,64 @@
+[2024-05-19 22:04:32,166] [logger.py|__console] [line:41] INFO    : 进入https://dig.chouti.com/页面
+[2024-05-19 22:04:32,508] [logger.py|__console] [line:41] INFO    : 点击('id', 'login_btn')元素
+[2024-05-19 22:04:33,521] [logger.py|__console] [line:41] INFO    : 等待1秒
+[2024-05-19 22:04:33,865] [logger.py|__console] [line:41] INFO    : 清空('name', 'phone')元素
+[2024-05-19 22:04:34,732] [logger.py|__console] [line:41] INFO    : 在('name', 'phone')元素输入
+[2024-05-19 22:04:34,940] [logger.py|__console] [line:41] INFO    : 清空('css selector', "input[placeholder='密码'][name='password'][type='password']")元素
+[2024-05-19 22:04:35,191] [logger.py|__console] [line:41] INFO    : 在('css selector', "input[placeholder='密码'][name='password'][type='password']")元素输入
+[2024-05-19 22:04:35,595] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.eyes-icon.eye-close')元素
+[2024-05-19 22:04:35,786] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.btn-large.login-btn')元素
+[2024-05-19 22:04:36,511] [logger.py|__console] [line:41] INFO    : 截屏成功,图片路径为D:\Documents\Python\UIAutoTestFrame\report\screenshot\phone_pwd_empty_202405192204.png
+[2024-05-19 22:04:39,915] [logger.py|__console] [line:41] INFO    : 进入https://dig.chouti.com/页面
+[2024-05-19 22:04:40,414] [logger.py|__console] [line:41] INFO    : 点击('id', 'login_btn')元素
+[2024-05-19 22:04:41,415] [logger.py|__console] [line:41] INFO    : 等待1秒
+[2024-05-19 22:04:41,536] [logger.py|__console] [line:41] INFO    : 清空('name', 'phone')元素
+[2024-05-19 22:04:41,695] [logger.py|__console] [line:41] INFO    : 在('name', 'phone')元素输入
+[2024-05-19 22:04:41,823] [logger.py|__console] [line:41] INFO    : 清空('css selector', "input[placeholder='密码'][name='password'][type='password']")元素
+[2024-05-19 22:04:42,011] [logger.py|__console] [line:41] INFO    : 在('css selector', "input[placeholder='密码'][name='password'][type='password']")元素输入jJg56kfBvwyXR
+[2024-05-19 22:04:42,160] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.eyes-icon.eye-close')元素
+[2024-05-19 22:04:42,285] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.btn-large.login-btn')元素
+[2024-05-19 22:04:42,864] [logger.py|__console] [line:41] INFO    : 截屏成功,图片路径为D:\Documents\Python\UIAutoTestFrame\report\screenshot\phone_empty_202405192204.png
+[2024-05-19 22:04:45,475] [logger.py|__console] [line:41] INFO    : 进入https://dig.chouti.com/页面
+[2024-05-19 22:04:45,868] [logger.py|__console] [line:41] INFO    : 点击('id', 'login_btn')元素
+[2024-05-19 22:04:46,870] [logger.py|__console] [line:41] INFO    : 等待1秒
+[2024-05-19 22:04:46,981] [logger.py|__console] [line:41] INFO    : 清空('name', 'phone')元素
+[2024-05-19 22:04:47,157] [logger.py|__console] [line:41] INFO    : 在('name', 'phone')元素输入15976601232
+[2024-05-19 22:04:47,267] [logger.py|__console] [line:41] INFO    : 清空('css selector', "input[placeholder='密码'][name='password'][type='password']")元素
+[2024-05-19 22:04:47,440] [logger.py|__console] [line:41] INFO    : 在('css selector', "input[placeholder='密码'][name='password'][type='password']")元素输入
+[2024-05-19 22:04:47,559] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.eyes-icon.eye-close')元素
+[2024-05-19 22:04:47,738] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.btn-large.login-btn')元素
+[2024-05-19 22:04:49,107] [logger.py|__console] [line:41] INFO    : 截屏成功,图片路径为D:\Documents\Python\UIAutoTestFrame\report\screenshot\pwd_empty_202405192204.png
+[2024-05-19 22:04:51,285] [logger.py|__console] [line:41] INFO    : 进入https://dig.chouti.com/页面
+[2024-05-19 22:04:51,755] [logger.py|__console] [line:41] INFO    : 点击('id', 'login_btn')元素
+[2024-05-19 22:04:52,756] [logger.py|__console] [line:41] INFO    : 等待1秒
+[2024-05-19 22:04:52,913] [logger.py|__console] [line:41] INFO    : 清空('name', 'phone')元素
+[2024-05-19 22:04:53,088] [logger.py|__console] [line:41] INFO    : 在('name', 'phone')元素输入123
+[2024-05-19 22:04:53,201] [logger.py|__console] [line:41] INFO    : 清空('css selector', "input[placeholder='密码'][name='password'][type='password']")元素
+[2024-05-19 22:04:53,420] [logger.py|__console] [line:41] INFO    : 在('css selector', "input[placeholder='密码'][name='password'][type='password']")元素输入jJg56kfBvwyXR
+[2024-05-19 22:04:53,542] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.eyes-icon.eye-close')元素
+[2024-05-19 22:04:53,680] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.btn-large.login-btn')元素
+[2024-05-19 22:04:54,281] [logger.py|__console] [line:41] INFO    : 截屏成功,图片路径为D:\Documents\Python\UIAutoTestFrame\report\screenshot\phone_error_202405192204.png
+[2024-05-19 22:04:55,974] [logger.py|__console] [line:41] INFO    : 进入https://dig.chouti.com/页面
+[2024-05-19 22:04:56,187] [logger.py|__console] [line:41] INFO    : 点击('id', 'login_btn')元素
+[2024-05-19 22:04:57,189] [logger.py|__console] [line:41] INFO    : 等待1秒
+[2024-05-19 22:04:57,343] [logger.py|__console] [line:41] INFO    : 清空('name', 'phone')元素
+[2024-05-19 22:04:57,572] [logger.py|__console] [line:41] INFO    : 在('name', 'phone')元素输入13511112222
+[2024-05-19 22:04:57,679] [logger.py|__console] [line:41] INFO    : 清空('css selector', "input[placeholder='密码'][name='password'][type='password']")元素
+[2024-05-19 22:04:57,956] [logger.py|__console] [line:41] INFO    : 在('css selector', "input[placeholder='密码'][name='password'][type='password']")元素输入jJg56kfBvwyXR
+[2024-05-19 22:04:58,090] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.eyes-icon.eye-close')元素
+[2024-05-19 22:04:58,218] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.btn-large.login-btn')元素
+[2024-05-19 22:04:59,298] [logger.py|__console] [line:41] INFO    : 截屏成功,图片路径为D:\Documents\Python\UIAutoTestFrame\report\screenshot\pwd_error_202405192204.png
+[2024-05-19 22:05:00,849] [logger.py|__console] [line:41] INFO    : 进入https://dig.chouti.com/页面
+[2024-05-19 22:05:01,052] [logger.py|__console] [line:41] INFO    : 点击('id', 'login_btn')元素
+[2024-05-19 22:05:02,053] [logger.py|__console] [line:41] INFO    : 等待1秒
+[2024-05-19 22:05:02,156] [logger.py|__console] [line:41] INFO    : 清空('name', 'phone')元素
+[2024-05-19 22:05:02,344] [logger.py|__console] [line:41] INFO    : 在('name', 'phone')元素输入15976601232
+[2024-05-19 22:05:02,448] [logger.py|__console] [line:41] INFO    : 清空('css selector', "input[placeholder='密码'][name='password'][type='password']")元素
+[2024-05-19 22:05:02,652] [logger.py|__console] [line:41] INFO    : 在('css selector', "input[placeholder='密码'][name='password'][type='password']")元素输入jJg56kfBvwyXR
+[2024-05-19 22:05:02,777] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.eyes-icon.eye-close')元素
+[2024-05-19 22:05:02,949] [logger.py|__console] [line:41] INFO    : 点击('css selector', '.btn-large.login-btn')元素
+[2024-05-19 22:05:05,643] [logger.py|__console] [line:41] INFO    : 在('css selector', '.avatar-icon')元素悬停
+[2024-05-19 22:05:06,126] [logger.py|__console] [line:41] INFO    : 在('css selector', '.avatar-icon')元素悬停
+[2024-05-19 22:05:06,656] [logger.py|__console] [line:41] INFO    : 截屏成功,图片路径为D:\Documents\Python\UIAutoTestFrame\report\screenshot\phone_pwd_success_202405192205.png
+[2024-05-19 22:05:06,982] [logger.py|__console] [line:41] INFO    : 在('css selector', '.avatar-icon')元素悬停
+[2024-05-19 22:05:07,183] [logger.py|__console] [line:41] INFO    : 点击('link text', '退出')元素
