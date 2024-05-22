@@ -5,9 +5,8 @@ import time
 import unittest
 
 sys.path.append(os.path.dirname(__file__))
-from package.HTMLTestRunner import HTMLTestRunner
+from common.HTMLTestRunner import HTMLTestRunner
 from common.sendmail import send_mail
-from common.newReport import new_report
 from config.config import REPORT_DIR, TEST_CASE_DIR, CONFIG_FILE
 
 # 读取config.ini配置文件
@@ -23,7 +22,9 @@ def run_case(test_path=TEST_CASE_DIR, result_path=REPORT_DIR):
     with open(filename, 'wb') as f:
         runner = HTMLTestRunner(stream=f, title='抽屉新热榜UI自动化测试报告', description=f'环境：windows 10 浏览器：{browser}')
         runner.run(unittest.defaultTestLoader.discover(test_path, pattern='login_test.py'))
-    report = new_report(result_path)  # 调用模块生成最新的报告
+    lists = os.listdir(result_path)
+    lists.sort(key=lambda fn: os.path.getmtime(result_path + "\\" + fn))
+    report = os.path.join(result_path, lists[-1])
     send_mail(report)  # 调用发送邮件模块
 
 

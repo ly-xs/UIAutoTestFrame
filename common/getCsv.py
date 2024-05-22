@@ -4,7 +4,7 @@ import csv
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common.logger import Logger
 
-logger = Logger(logger="GetCsv")
+logger = Logger(name="GetCsv").get_logger()
 
 
 class GetCsv:

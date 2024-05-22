@@ -4,15 +4,14 @@ import sys
 import time
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from selenium.common.exceptions import NoSuchElementException, NoSuchFrameException, NoSuchWindowException, \
-    NoAlertPresentException
+from selenium.common.exceptions import NoSuchElementException, NoSuchFrameException, NoAlertPresentException
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from common.logger import Logger
 from config.config import CONFIG_FILE, REPORT_DIR
 from selenium.webdriver import ActionChains
 
-logger = Logger(logger="BasePage")
+logger = Logger(name="BasePage").get_logger()
 # 读取config.ini配置文件
 config = configparser.ConfigParser()
 config.read(CONFIG_FILE, encoding="utf-8")
@@ -51,8 +50,8 @@ class BasePage:
             return self.driver.find_element(*loc) if lists is False else self.driver.find_elements(*loc)
         except TimeoutError:
             logger.error(f"{self}页面加载超时")
-        except NoSuchElementException:
-            logger.error(f"{self}页面中未能找到{loc}元素")
+        except Exception as e:
+            logger.error(f"{self}页面中未能找到{loc}元素{e}")
 
     def script(self, src):
         """
@@ -95,8 +94,8 @@ class BasePage:
         """
         try:
             return self.driver.switch_to.window(loc)
-        except NoSuchWindowException as msg:
-            logger.error(f"{self}页面中未能找到{msg}窗口")
+        except Exception as e:
+            logger.error(f"{self}页面中未能找到{e}窗口")
 
     def switch_alert(self):
         """
@@ -115,7 +114,7 @@ class BasePage:
         except NoSuchElementException:
             logger.error(f"{self}页面中未能找到{loc}元素")
 
-    def sleep(self, seconds):
+    def sleep(self, seconds) -> None:
         time.sleep(seconds)
         logger.info(f"等待{seconds}秒")
 
@@ -141,9 +140,8 @@ class BasePage:
             logger.info(f'等待时长:{end - start}秒')
             logger.info(f'{model} 等待元素可见:{loc}')
         except Exception as e:
-            logger.error(f'{model} 等待元素可见失败:{loc}！{e}')
-            # 截图
             self.save_web_img(model)
+            logger.error(f'{model} 等待元素可见失败:{loc}！{e}')
 
     # 悬停
     def hover(self, loc):

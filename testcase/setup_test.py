@@ -8,12 +8,12 @@ from config.config import TEST_DATA_DIR
 from pageobject.setupPage import setup
 from ddt import ddt, data
 from pageobject.loginPage import login
-from common.baseTestcase import BaseTestCase
+from testcase.baseTestcase import BaseTestCase
 
 LoginData = GetYaml(TEST_DATA_DIR + r"\login_data.yaml").get_yaml()
 phone = LoginData[5]['data']['phone']
 password = LoginData[5]['data']['password']
-logger = Logger(logger="SetupTestCase")
+logger = Logger(name="SetupTestCase").get_logger()
 
 
 @ddt
@@ -35,7 +35,7 @@ class SetupTestCase(BaseTestCase):
         :param datayaml: 加载login_data登录测试数据
         :return:
         """
-        logger.info(f"当前执行测试用例ID-> {datayaml['id']} ; 测试点-> {datayaml['detail']}")
+        logger.info(f"当前执行测试用例ID-> {datayaml['id']}; 测试点-> {datayaml['detail']}")
 
         # 调用登录方法
         self.login.user_login(phone, password)

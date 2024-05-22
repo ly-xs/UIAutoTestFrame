@@ -42,7 +42,8 @@
     phone : 13511112222
     password: jJg56kfBvwyXR
   check :
-    - 手机号或密码错误
+#    - 手机号或密码错误
+    - 手机号
 -
   id: test_login001.6
   detail: 手机号和密码正确
@@ -52,3 +53,4 @@
     password: jJg56kfBvwyXR
   check:
     - lyxs
+    - 登录

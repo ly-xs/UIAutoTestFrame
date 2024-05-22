@@ -4,7 +4,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common.getYaml import GetYaml
 from config.config import PAGE_DATA_DIR
-from common.basePage import BasePage
+from pageobject.basePage import BasePage
 
 # 获取页面元素
 pageData = GetYaml(PAGE_DATA_DIR + r"\login_element.yaml")

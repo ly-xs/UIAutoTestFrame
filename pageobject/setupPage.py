@@ -2,7 +2,7 @@ import os
 import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from common.basePage import BasePage
+from pageobject.basePage import BasePage
 from common.getYaml import GetYaml
 from config.config import PAGE_DATA_DIR
 
