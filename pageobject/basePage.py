@@ -17,6 +17,8 @@ config = configparser.ConfigParser()
 config.read(CONFIG_FILE, encoding="utf-8")
 home_url = config.get("WebURL", "URL")
 screenshot_path = REPORT_DIR + r"\screenshot"
+if not os.path.exists(screenshot_path):
+    os.makedirs(screenshot_path)
 
 
 class BasePage:

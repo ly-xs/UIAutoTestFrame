@@ -9,7 +9,7 @@ from logging.handlers import RotatingFileHandler
 
 # 日志存放文件夹，如不存在，则自动创建一个logs目录
 if not os.path.exists(config.LOG_DIR):
-    os.mkdir(config.LOG_DIR)
+    os.makedirs(config.LOG_DIR)
 
 
 class Logger:
