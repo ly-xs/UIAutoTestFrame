@@ -11,7 +11,7 @@ from common.logger import Logger
 from config.config import CONFIG_FILE, REPORT_DIR
 from selenium.webdriver import ActionChains
 
-logger = Logger(name="BasePage").get_logger()
+logger = Logger().get_logger(__name__)
 # 读取config.ini配置文件
 config = configparser.ConfigParser()
 config.read(CONFIG_FILE, encoding="utf-8")
@@ -116,7 +116,8 @@ class BasePage:
         except NoSuchElementException:
             logger.error(f"{self}页面中未能找到{loc}元素")
 
-    def sleep(self, seconds) -> None:
+    @staticmethod
+    def sleep(seconds) -> None:
         time.sleep(seconds)
         logger.info(f"等待{seconds}秒")
 
@@ -162,6 +163,15 @@ class BasePage:
 
     # 截图
     def save_web_img(self, file_name):
+
+        # 保留12张截图，login运行两次的数量
+        log_files = sorted(
+            (os.path.join(screenshot_path, f) for f in os.listdir(screenshot_path) if f.endswith('.png')),
+            key=os.path.getmtime
+        )
+        while len(log_files) > 11:
+            os.remove(log_files.pop(0))
+
         # filepath = 指图片保存目录/model(页面功能名称)_当前时间到秒.png
         # 当前时间
         dateNow = time.strftime('%Y%m%d%H%M', time.localtime(time.time()))

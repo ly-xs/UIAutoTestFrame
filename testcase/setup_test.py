@@ -13,7 +13,7 @@ from testcase.baseTestcase import BaseTestCase
 LoginData = GetYaml(TEST_DATA_DIR + r"\login_data.yaml").get_yaml()
 phone = LoginData[5]['data']['phone']
 password = LoginData[5]['data']['password']
-logger = Logger(name="SetupTestCase").get_logger()
+logger = Logger().get_logger(__name__)
 
 
 @ddt

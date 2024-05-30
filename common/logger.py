@@ -3,13 +3,10 @@ import sys
 import time
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from config import config
 import logging
 from logging.handlers import RotatingFileHandler
-
-# 日志存放文件夹，如不存在，则自动创建一个logs目录
-if not os.path.exists(config.LOG_DIR):
-    os.makedirs(config.LOG_DIR)
+from config import config
+from threading import Lock
 
 
 class Logger:
@@ -17,61 +14,64 @@ class Logger:
     日志记录类
     """
     _instance = None
-    _initialized = False
-    file_handler = None
+    _lock = Lock()
 
     def __new__(cls, *args, **kwargs):
-        if cls._instance is None:
-            cls._instance = super(Logger, cls).__new__(cls)
+        with cls._lock:
+            if not cls._instance:
+                cls._instance = super(Logger, cls).__new__(cls)
+                cls._instance._initialized = False
         return cls._instance
 
-    def __init__(self, name, level=logging.INFO):
-        if not self._initialized:
-            self._initialized = True
+    def __init__(self, level: int = logging.INFO):
+        if self._initialized:
+            return
 
-            # 文件命名
-            self.logger = logging.getLogger(name)
-            self.logger.setLevel(level)
+        self._initialized = True
 
-            # Remove all handlers associated with the logger
-            for handler in self.logger.handlers[:]:
-                self.logger.removeHandler(handler)
+        # 创建logger
+        self.logger = logging.getLogger("AppLogger")
+        self.logger.setLevel(level)
 
-            # Create a console handler
-            console_handler = logging.StreamHandler(sys.stdout)
-            console_handler.setLevel(level)
+        # 移除所有旧的处理器
+        self.logger.handlers.clear()
 
-            # Create a formatter and set it for the console handler
-            formatter = logging.Formatter('%(asctime)s - %(name)s - line:%(lineno)3d - %(levelname)s: %(message)s')
-            console_handler.setFormatter(formatter)
+        # 创建并添加控制台处理器
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setLevel(level)
+        console_formatter = logging.Formatter('%(asctime)s - %(name)s - line:%(lineno)3d - %(levelname)s: %(message)s')
+        console_handler.setFormatter(console_formatter)
+        self.logger.addHandler(console_handler)
 
-            # Add the console handler to the logger
-            self.logger.addHandler(console_handler)
+        # 确保日志目录存在
+        if not os.path.exists(config.LOG_DIR):
+            os.makedirs(config.LOG_DIR)
 
-            # Initialize the file handler if it hasn't been done yet
-            self.initialize_file_handler(level)
+        # 创建并添加文件处理器
+        log_file_name = os.path.join(config.LOG_DIR, f"{time.strftime('%Y-%m-%d_%H_%M_%S')}.log")
+        file_handler = RotatingFileHandler(log_file_name, maxBytes=50 * 1024, encoding='utf-8', backupCount=5)
+        file_handler.setLevel(level)
+        file_formatter = logging.Formatter('%(asctime)s - %(name)s - line:%(lineno)3d - %(levelname)s: %(message)s')
+        file_handler.setFormatter(file_formatter)
+        self.logger.addHandler(file_handler)
 
-    @classmethod
-    def initialize_file_handler(cls, level=logging.INFO):
+        # 删除超过三个的旧日志文件
+        self._cleanup_old_logs(config.LOG_DIR, backup_count=3)
+
+    @staticmethod
+    def _cleanup_old_logs(log_dir, backup_count):
         """
-        Initialize the file handler for logging.
+        删除超过指定数量的旧日志文件
         """
-        if cls.file_handler is None:
-            # Create a file handler
-            logger_name = os.path.join(config.LOG_DIR, f"{time.strftime('%Y-%m-%d %H_%M_%S')}.log")
-            cls.file_handler = RotatingFileHandler(logger_name, encoding='utf-8', backupCount=5)
-            cls.file_handler.setLevel(level)
+        log_files = sorted(
+            (os.path.join(log_dir, f) for f in os.listdir(log_dir) if f.endswith('.log')),
+            key=os.path.getmtime
+        )
+        while len(log_files) > backup_count:
+            os.remove(log_files.pop(0))
 
-            # Create a formatter and set it for the file handler
-            formatter = logging.Formatter('%(asctime)s - %(name)s - line:%(lineno)3d - %(levelname)s: %(message)s')
-            cls.file_handler.setFormatter(formatter)
-
-            # Add the file handler to the root logger
-            root_logger = logging.getLogger()
-            root_logger.addHandler(cls.file_handler)
-
-    def get_logger(self):
+    def get_logger(self, module_name: str) -> logging.Logger:
         """
-        Return the logger instance.
+        根据模块名称返回日志记录器实例
         """
-        return self.logger
+        return self.logger.getChild(module_name)

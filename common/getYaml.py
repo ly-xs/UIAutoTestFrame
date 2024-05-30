@@ -5,7 +5,7 @@ import yaml
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common.logger import Logger
 
-logger = Logger(name="GetYaml").get_logger()
+logger = Logger().get_logger(__name__)
 
 
 class GetYaml:

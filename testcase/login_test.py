@@ -9,7 +9,7 @@ from config.config import TEST_DATA_DIR
 from common.logger import Logger
 from pageobject.loginPage import login
 
-logger = Logger(name="LoginTestCase").get_logger()
+logger = Logger().get_logger(__name__)
 
 
 @ddt

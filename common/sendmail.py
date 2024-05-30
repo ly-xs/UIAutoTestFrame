@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 from config.config import CONFIG_FILE
 from common.logger import Logger
 
-logger = Logger(name="send_mail").get_logger()
+logger = Logger().get_logger(__name__)
 
 
 def send_mail(filename):

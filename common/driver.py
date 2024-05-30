@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
 
-logger = Logger(name="BasePage").get_logger()
+logger = Logger().get_logger(__name__)
 
 
 def create_driver(browser='chrome'):

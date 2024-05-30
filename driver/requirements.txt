@@ -1,6 +1,0 @@
-ddt==1.4.4
-openpyxl==3.0.9
-PyMySQL==1.1.0
-PyYAML==6.0
-PyYAML==6.0.1
-selenium==4.21.0
