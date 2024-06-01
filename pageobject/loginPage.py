@@ -87,7 +87,6 @@ class login(BasePage):
         """
         self.open(self.url)
         self.login_dialog()
-        self.sleep(1)
         self.login_phone(phone)
         self.login_password(password)
         self.cancel_keep_login()

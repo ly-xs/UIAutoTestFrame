@@ -116,16 +116,6 @@ class BasePage:
         except NoSuchElementException:
             logger.error(f"{self}页面中未能找到{loc}元素")
 
-    @staticmethod
-    def sleep(seconds) -> None:
-        time.sleep(seconds)
-        logger.info(f"等待{seconds}秒")
-
-    # 隐式等待
-    def wait(self, seconds):
-        self.driver.implicitly_wait(seconds)
-        logger.info(f"隐式等待{seconds}秒")
-
     # 等待元素可见
     def wait_eleVisible(self, loc, timeout=10, poll_frequency=0.5, model=None):
         """

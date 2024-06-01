@@ -37,18 +37,13 @@ class setup(BasePage):
         """
         # 选择菜单-> 设置
         self.hover(self.userProNick_loc)
-        self.sleep(1)
         self.click(self.text_setup_loc)
-        self.sleep(1)
         # 点击编辑按钮
         self.click(self.edit_btn_loc)
-        self.sleep(1)
         # 清空昵称文本框并录入数据
         self.send_key(self.nick_loc, data[0])
-        self.sleep(1)
         # 清空签名文本框并录入数据
         self.send_key(self.user_sign_loc, data[1])
-        self.sleep(1)
         # 单击保存
         self.click(self.save_btn_loc)
 
