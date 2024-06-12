@@ -40,14 +40,6 @@ class GetYaml:
         """
         return self.get_yaml()['testcase'][i]['find_type']
 
-    def get_operate_type(self, i):
-        """
-        获取testcase项的operate_type元素数据
-        :param i: 位置序列号
-        :return: 返回operate_type元素数据
-        """
-        return self.get_yaml()['testcase'][i]['operate_type']
-
     def get_check_element_info(self, i):
         """
         获取check项的element_info元素
@@ -63,14 +55,6 @@ class GetYaml:
         :return: 返回find_type元素数据
         """
         return self.get_yaml()['check'][i]['find_type']
-
-    def get_check_operate_type(self, i):
-        """
-        获取check项的operate_type
-        :param i: 位置序列号
-        :return: 返回operate_type元素数据
-        """
-        return self.get_yaml()['check'][i]['operate_type']
 
     def get_test_info_url(self):
         """

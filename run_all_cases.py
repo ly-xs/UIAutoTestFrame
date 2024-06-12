@@ -21,7 +21,7 @@ def run_case(test_path=TEST_CASE_DIR, result_path=REPORT_DIR):
     filename = result_path + '/' + now + 'result.html'
     with open(filename, 'wb') as f:
         runner = HTMLTestRunner(stream=f, title='抽屉新热榜UI自动化测试报告', description=f'环境：windows 10 浏览器：{browser}')
-        runner.run(unittest.defaultTestLoader.discover(test_path, pattern='login_test.py'))
+        runner.run(unittest.defaultTestLoader.discover(test_path, pattern='loginTest.py'))
 
     # 删除超过五个的报告
     log_files = sorted(
@@ -35,7 +35,7 @@ def run_case(test_path=TEST_CASE_DIR, result_path=REPORT_DIR):
     lists = os.listdir(result_path)
     lists.sort(key=lambda fn: os.path.getmtime(result_path + "\\" + fn))
     report = os.path.join(result_path, lists[-1])
-    send_mail(report)
+    # send_mail(report)
 
 
 if __name__ == "__main__":

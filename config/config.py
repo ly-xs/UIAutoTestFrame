@@ -13,6 +13,8 @@ DRIVER_DIR = os.path.join(BASE_DIR, "driver")
 REPORT_DIR = os.path.join(BASE_DIR, "report")
 # 日志文件目录
 LOG_DIR = os.path.join(REPORT_DIR, "logs")
+# 截图文件目录
+SCREENSHOTS_DIR = os.path.join(REPORT_DIR, "screenshots")
 
 # 页面元素目录
 PAGE_DATA_DIR = os.path.join(BASE_DIR, 'pageobject', "pagedata")

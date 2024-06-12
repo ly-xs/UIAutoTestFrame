@@ -52,10 +52,10 @@ class setup(BasePage):
     sign_setup_success_loc = (pageData.get_check_find_type(2), pageData.get_check_element_info(2))
 
     def nick_error_hint(self):
-        return self.locator(self.nick_error_loc).text
+        return self.find_element(self.nick_error_loc).text
 
     def nick_setup_success_hint(self):
-        return self.locator(self.nick_setup_success_loc).text
+        return self.find_element(self.nick_setup_success_loc).text
 
     def sign_setup_success_hint(self):
-        return self.locator(self.sign_setup_success_loc).text
+        return self.find_element(self.sign_setup_success_loc).text
