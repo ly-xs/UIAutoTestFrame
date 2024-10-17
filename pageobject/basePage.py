@@ -149,21 +149,31 @@ class BasePage:
         except NoAlertPresentException as msg:
             logger.error(f"{self}页面中未能找到{msg}警告窗")
 
-    # 悬停
     def hover(self, loc):
+        """
+        鼠标悬停
+        :param loc: 元素
+        :return: None
+        """
         ActionChains(self.driver).move_to_element(self.find_element(loc)).perform()
         logger.info(f"在{loc}元素悬停")
 
-    # 浏览器前进操作
     def forward(self):
+        """
+        浏览器前进操作
+        :return: None
+        """
         try:
             self.driver.forward()
             logger.info("前进一个页面")
         except Exception as e:
             logger.error(f"{self}页面中无法前进！{e}")
 
-    # 浏览器后退操作
     def back(self):
+        """
+        浏览器后退操作
+        :return: None
+        """
         try:
             self.driver.back()
             logger.info("后退一个页面")
@@ -189,7 +199,6 @@ class BasePage:
         except Exception as e:
             logger.error(f"{self}页面中无法最大化浏览器！{e}")
 
-    # 点击关闭当前窗口
     def close(self):
         try:
             self.driver.close()
